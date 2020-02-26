@@ -36,6 +36,7 @@
 		2258F68D23F394F2005D5C6B /* Settings+UserDefaults.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2258F68C23F394F2005D5C6B /* Settings+UserDefaults.swift */; };
 		2258F69323F3FC53005D5C6B /* sound2.m4a in Resources */ = {isa = PBXBuildFile; fileRef = 2258F69123F3FC53005D5C6B /* sound2.m4a */; };
 		2258F69423F3FC53005D5C6B /* sound1.m4a in Resources */ = {isa = PBXBuildFile; fileRef = 2258F69223F3FC53005D5C6B /* sound1.m4a */; };
+		22D51EDA24065D5A0008083A /* ChatRoomViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22D51ED924065D5A0008083A /* ChatRoomViewController.swift */; };
 		4A28F0FC053B8D13A8CFE067 /* Pods_ChatApp_ChatAppUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AC9457DC010D00672E97A181 /* Pods_ChatApp_ChatAppUITests.framework */; };
 		C085ECAC850EF925FEBDF316 /* Pods_ChatAppTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CF5064EA267ECAB498853B57 /* Pods_ChatAppTests.framework */; };
 		DC2097FAA445D0C1CB91B752 /* Pods_ChatApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BB39E4AB3C252945803D8B5B /* Pods_ChatApp.framework */; };
@@ -95,6 +96,7 @@
 		2258F68C23F394F2005D5C6B /* Settings+UserDefaults.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Settings+UserDefaults.swift"; sourceTree = "<group>"; };
 		2258F69123F3FC53005D5C6B /* sound2.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = sound2.m4a; sourceTree = "<group>"; };
 		2258F69223F3FC53005D5C6B /* sound1.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = sound1.m4a; sourceTree = "<group>"; };
+		22D51ED924065D5A0008083A /* ChatRoomViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ChatRoomViewController.swift; path = "/Users/makimaki/Desktop/Develop/ios_app/ChatApp/ChatApp/View Controllers/ChatRoomViewController.swift"; sourceTree = "<absolute>"; };
 		4E710CB427A829CB79112920 /* Pods-ChatApp-ChatAppUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ChatApp-ChatAppUITests.release.xcconfig"; path = "Target Support Files/Pods-ChatApp-ChatAppUITests/Pods-ChatApp-ChatAppUITests.release.xcconfig"; sourceTree = "<group>"; };
 		6B8917037C648636082AD2F1 /* Pods-ChatApp-ChatAppUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ChatApp-ChatAppUITests.debug.xcconfig"; path = "Target Support Files/Pods-ChatApp-ChatAppUITests/Pods-ChatApp-ChatAppUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		935B7FAEBC3E21E3EE7385A9 /* Pods-ChatAppTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ChatAppTests.release.xcconfig"; path = "Target Support Files/Pods-ChatAppTests/Pods-ChatAppTests.release.xcconfig"; sourceTree = "<group>"; };
@@ -198,6 +200,7 @@
 		2258F65F23F37F8D005D5C6B /* View Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				22D51ED924065D5A0008083A /* ChatRoomViewController.swift */,
 				2258F63323F37EF4005D5C6B /* AdvancedExampleViewController.swift */,
 				2258F66023F380D2005D5C6B /* AutocompleteExampleViewController.swift */,
 				2258F66223F38166005D5C6B /* BasicExampleViewController.swift */,
@@ -546,6 +549,7 @@
 				2258F68123F3888F005D5C6B /* UIViewController+Extensions.swift in Sources */,
 				2258F63223F37EF4005D5C6B /* SceneDelegate.swift in Sources */,
 				2258F67523F384DF005D5C6B /* MockMessage.swift in Sources */,
+				22D51EDA24065D5A0008083A /* ChatRoomViewController.swift in Sources */,
 				2258F67723F38500005D5C6B /* MockSocket.swift in Sources */,
 				2258F66D23F38293005D5C6B /* SettingsViewController.swift in Sources */,
 				2258F66123F380D2005D5C6B /* AutocompleteExampleViewController.swift in Sources */,
