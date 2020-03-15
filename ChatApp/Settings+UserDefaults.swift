@@ -44,7 +44,7 @@ extension UserDefaults {
     }
     
     func mockMessagesCount() -> Int {
-        if let value = object(forKey: "mockMessages") as? Int {
+        if let value = object(forKey: "mockMessages") as? Int { // 該当キーの値を取得(Int型にきダウンキャスト)
             return value
         }
         return 20

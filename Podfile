@@ -6,6 +6,9 @@ target 'ChatApp' do
   # Comment the next line if you don't want to use dynamic frameworks
   use_frameworks!
   pod 'MessageKit', '3.0.0'
+  pod 'Firebase'
+  pod 'Firebase/Analytics'
+  pod 'Firebase/Auth'
 
   # Pods for ChatApp
 
