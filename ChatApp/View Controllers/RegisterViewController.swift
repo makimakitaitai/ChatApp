@@ -1,21 +1,20 @@
 //
-//  LoginViewController.swift
+//  RegisterViewController.swift
 //  ChatApp
 //
-//  Created by 萬木大志 on 2020/03/13.
+//  Created by 萬木大志 on 2020/03/15.
 //  Copyright © 2020 makimaki. All rights reserved.
 //
 
 import UIKit
-import Firebase
 
-class LoginViewController: UIViewController {
+class RegisterViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
         
         let titleLabel: UILabel = UILabel(frame: CGRect(x: 0,y: 0,width: 200,height: 50))
-        titleLabel.text = "Chat App"
+        titleLabel.text = "ユーザ登録"
         titleLabel.font = titleLabel.font.withSize(40.0)
         titleLabel.textColor = UIColor(red: 0, green: 0, blue: 0, alpha: 1.0)
         titleLabel.textAlignment = NSTextAlignment.center
@@ -23,14 +22,14 @@ class LoginViewController: UIViewController {
         self.view.backgroundColor = UIColor(red: 255, green: 0, blue: 0, alpha: 1.0)
         self.view.addSubview(titleLabel)
         
-        let accountidTextField = UITextField()
-        accountidTextField.frame = CGRect(x: 30, y: 300, width: UIScreen.main.bounds.size.width-60, height: 38)
-        accountidTextField.placeholder = "メールアドレス"
-        accountidTextField.keyboardType = .emailAddress
-        accountidTextField.borderStyle = .roundedRect
-        accountidTextField.returnKeyType = .done
-        accountidTextField.clearButtonMode = .always
-        self.view.addSubview(accountidTextField)
+        let emailTextField = UITextField()
+        emailTextField.frame = CGRect(x: 30, y: 300, width: UIScreen.main.bounds.size.width-60, height: 38)
+        emailTextField.placeholder = "メールアドレス"
+        emailTextField.keyboardType = .emailAddress
+        emailTextField.borderStyle = .roundedRect
+        emailTextField.returnKeyType = .done
+        emailTextField.clearButtonMode = .always
+        self.view.addSubview(emailTextField)
         
         let passwordTextField = UITextField()
         passwordTextField.frame = CGRect(x: 30, y: 350, width: UIScreen.main.bounds.size.width-60, height: 38)
@@ -41,17 +40,21 @@ class LoginViewController: UIViewController {
         passwordTextField.clearButtonMode = .always
         self.view.addSubview(passwordTextField)
         
+        let nicknameTextField = UITextField()
+        nicknameTextField.frame = CGRect(x: 30, y: 400, width: UIScreen.main.bounds.size.width-60, height: 38)
+        nicknameTextField.placeholder = "ニックネーム"
+        nicknameTextField.keyboardType = .default
+        nicknameTextField.borderStyle = .roundedRect
+        nicknameTextField.returnKeyType = .done
+        nicknameTextField.clearButtonMode = .always
+        self.view.addSubview(nicknameTextField)
+        
         let authButton = UIButton(frame: CGRect(x: 200,y: 500,width: 200,height: 100))
-        authButton.setTitle("OK", for: UIControl.State.normal)
+        authButton.setTitle("登録", for: UIControl.State.normal)
         authButton.sizeToFit()
         authButton.addTarget(self, action: #selector(authButtonEvent(_:)), for: UIControl.Event.touchUpInside)
         self.view.addSubview(authButton)
         
-        let toRegisterButton = UIButton(frame: CGRect(x: 120,y: 700,width: 200,height: 100))
-        toRegisterButton.setTitle("新規登録の方はこちらへ", for: UIControl.State.normal)
-        toRegisterButton.sizeToFit()
-        toRegisterButton.addTarget(self, action: #selector(toRegisterButtonEvent(_:)), for: UIControl.Event.touchUpInside)
-        self.view.addSubview(toRegisterButton)
 
         // Do any additional setup after loading the view.
     }
@@ -62,12 +65,6 @@ class LoginViewController: UIViewController {
     
     @objc func authButtonEvent(_ sender: UIButton) {
         print("button pushed.")
-    }
-    
-    @objc func toRegisterButtonEvent(_ sender: UIButton) {
-        print("to RegisterPage")
-        let registerVC = RegisterViewController()
-        self.navigationController?.pushViewController(registerVC, animated: true)
     }
 
     /*

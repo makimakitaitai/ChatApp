@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		22218DAF241B67DC00B6AC05 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 22218DAE241B67DC00B6AC05 /* GoogleService-Info.plist */; };
 		22218DB1241B807A00B6AC05 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22218DB0241B807A00B6AC05 /* LoginViewController.swift */; };
+		22218DB3241E132200B6AC05 /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22218DB2241E132200B6AC05 /* RegisterViewController.swift */; };
 		2258F63023F37EF4005D5C6B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2258F62F23F37EF4005D5C6B /* AppDelegate.swift */; };
 		2258F63223F37EF4005D5C6B /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2258F63123F37EF4005D5C6B /* SceneDelegate.swift */; };
 		2258F63423F37EF4005D5C6B /* AdvancedExampleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2258F63323F37EF4005D5C6B /* AdvancedExampleViewController.swift */; };
@@ -65,6 +66,7 @@
 		1DB32D02ADB01E9BA2F72540 /* Pods-ChatApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ChatApp.debug.xcconfig"; path = "Target Support Files/Pods-ChatApp/Pods-ChatApp.debug.xcconfig"; sourceTree = "<group>"; };
 		22218DAE241B67DC00B6AC05 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
 		22218DB0241B807A00B6AC05 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		22218DB2241E132200B6AC05 /* RegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
 		2258F62C23F37EF4005D5C6B /* ChatApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ChatApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2258F62F23F37EF4005D5C6B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		2258F63123F37EF4005D5C6B /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -215,6 +217,7 @@
 				2258F66A23F3826E005D5C6B /* NavigationController.swift */,
 				2258F66C23F38293005D5C6B /* SettingsViewController.swift */,
 				22218DB0241B807A00B6AC05 /* LoginViewController.swift */,
+				22218DB2241E132200B6AC05 /* RegisterViewController.swift */,
 			);
 			path = "View Controllers";
 			sourceTree = "<group>";
@@ -568,6 +571,7 @@
 				2258F66723F381EB005D5C6B /* LaunchViewController.swift in Sources */,
 				2258F66923F38241005D5C6B /* MessageContainerController.swift in Sources */,
 				2258F67C23F3859A005D5C6B /* CustomMessageFlowLayout.swift in Sources */,
+				22218DB3241E132200B6AC05 /* RegisterViewController.swift in Sources */,
 				2258F67F23F38866005D5C6B /* UIColor+Extensions.swift in Sources */,
 				2258F66323F38166005D5C6B /* BasicExampleViewController.swift in Sources */,
 			);
