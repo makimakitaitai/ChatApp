@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		22218DAF241B67DC00B6AC05 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 22218DAE241B67DC00B6AC05 /* GoogleService-Info.plist */; };
 		22218DB1241B807A00B6AC05 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22218DB0241B807A00B6AC05 /* LoginViewController.swift */; };
 		22218DB3241E132200B6AC05 /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22218DB2241E132200B6AC05 /* RegisterViewController.swift */; };
 		2258F63023F37EF4005D5C6B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2258F62F23F37EF4005D5C6B /* AppDelegate.swift */; };
@@ -39,6 +38,10 @@
 		2258F68D23F394F2005D5C6B /* Settings+UserDefaults.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2258F68C23F394F2005D5C6B /* Settings+UserDefaults.swift */; };
 		2258F69323F3FC53005D5C6B /* sound2.m4a in Resources */ = {isa = PBXBuildFile; fileRef = 2258F69123F3FC53005D5C6B /* sound2.m4a */; };
 		2258F69423F3FC53005D5C6B /* sound1.m4a in Resources */ = {isa = PBXBuildFile; fileRef = 2258F69223F3FC53005D5C6B /* sound1.m4a */; };
+		22B94B0D2428AE1C004ACC8E /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 22B94B0C2428AE1C004ACC8E /* GoogleService-Info.plist */; };
+		22B94B0E2428AE1C004ACC8E /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 22B94B0C2428AE1C004ACC8E /* GoogleService-Info.plist */; };
+		22B94B0F2428AE1C004ACC8E /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 22B94B0C2428AE1C004ACC8E /* GoogleService-Info.plist */; };
+		22C1AF7324234D24004E592E /* RegisterConfirmViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22C1AF7224234D23004E592E /* RegisterConfirmViewController.swift */; };
 		22D51EDA24065D5A0008083A /* ChatRoomViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22D51ED924065D5A0008083A /* ChatRoomViewController.swift */; };
 		4A28F0FC053B8D13A8CFE067 /* Pods_ChatApp_ChatAppUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AC9457DC010D00672E97A181 /* Pods_ChatApp_ChatAppUITests.framework */; };
 		C085ECAC850EF925FEBDF316 /* Pods_ChatAppTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CF5064EA267ECAB498853B57 /* Pods_ChatAppTests.framework */; };
@@ -64,7 +67,6 @@
 
 /* Begin PBXFileReference section */
 		1DB32D02ADB01E9BA2F72540 /* Pods-ChatApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ChatApp.debug.xcconfig"; path = "Target Support Files/Pods-ChatApp/Pods-ChatApp.debug.xcconfig"; sourceTree = "<group>"; };
-		22218DAE241B67DC00B6AC05 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
 		22218DB0241B807A00B6AC05 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		22218DB2241E132200B6AC05 /* RegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
 		2258F62C23F37EF4005D5C6B /* ChatApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ChatApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -102,6 +104,8 @@
 		2258F68C23F394F2005D5C6B /* Settings+UserDefaults.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Settings+UserDefaults.swift"; sourceTree = "<group>"; };
 		2258F69123F3FC53005D5C6B /* sound2.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = sound2.m4a; sourceTree = "<group>"; };
 		2258F69223F3FC53005D5C6B /* sound1.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = sound1.m4a; sourceTree = "<group>"; };
+		22B94B0C2428AE1C004ACC8E /* GoogleService-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "GoogleService-Info.plist"; sourceTree = SOURCE_ROOT; };
+		22C1AF7224234D23004E592E /* RegisterConfirmViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterConfirmViewController.swift; sourceTree = "<group>"; };
 		22D51ED924065D5A0008083A /* ChatRoomViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ChatRoomViewController.swift; path = "/Users/makimaki/Desktop/Develop/ios_app/ChatApp/ChatApp/View Controllers/ChatRoomViewController.swift"; sourceTree = "<absolute>"; };
 		4E710CB427A829CB79112920 /* Pods-ChatApp-ChatAppUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ChatApp-ChatAppUITests.release.xcconfig"; path = "Target Support Files/Pods-ChatApp-ChatAppUITests/Pods-ChatApp-ChatAppUITests.release.xcconfig"; sourceTree = "<group>"; };
 		6B8917037C648636082AD2F1 /* Pods-ChatApp-ChatAppUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ChatApp-ChatAppUITests.debug.xcconfig"; path = "Target Support Files/Pods-ChatApp-ChatAppUITests/Pods-ChatApp-ChatAppUITests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -179,9 +183,9 @@
 				2258F63823F37EF7005D5C6B /* Assets.xcassets */,
 				2258F63A23F37EF7005D5C6B /* LaunchScreen.storyboard */,
 				2258F63D23F37EF7005D5C6B /* Info.plist */,
-				22218DAE241B67DC00B6AC05 /* GoogleService-Info.plist */,
 				2258F68A23F39366005D5C6B /* IMessageViewController.swift */,
 				2258F68C23F394F2005D5C6B /* Settings+UserDefaults.swift */,
+				22B94B0C2428AE1C004ACC8E /* GoogleService-Info.plist */,
 			);
 			path = ChatApp;
 			sourceTree = "<group>";
@@ -218,6 +222,7 @@
 				2258F66C23F38293005D5C6B /* SettingsViewController.swift */,
 				22218DB0241B807A00B6AC05 /* LoginViewController.swift */,
 				22218DB2241E132200B6AC05 /* RegisterViewController.swift */,
+				22C1AF7224234D23004E592E /* RegisterConfirmViewController.swift */,
 			);
 			path = "View Controllers";
 			sourceTree = "<group>";
@@ -418,7 +423,7 @@
 			files = (
 				2258F69423F3FC53005D5C6B /* sound1.m4a in Resources */,
 				2258F63C23F37EF7005D5C6B /* LaunchScreen.storyboard in Resources */,
-				22218DAF241B67DC00B6AC05 /* GoogleService-Info.plist in Resources */,
+				22B94B0D2428AE1C004ACC8E /* GoogleService-Info.plist in Resources */,
 				2258F69323F3FC53005D5C6B /* sound2.m4a in Resources */,
 				2258F63923F37EF7005D5C6B /* Assets.xcassets in Resources */,
 			);
@@ -428,6 +433,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				22B94B0E2428AE1C004ACC8E /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -435,6 +441,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				22B94B0F2428AE1C004ACC8E /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -570,6 +577,7 @@
 				2258F66523F381A5005D5C6B /* ChatViewController.swift in Sources */,
 				2258F66723F381EB005D5C6B /* LaunchViewController.swift in Sources */,
 				2258F66923F38241005D5C6B /* MessageContainerController.swift in Sources */,
+				22C1AF7324234D24004E592E /* RegisterConfirmViewController.swift in Sources */,
 				2258F67C23F3859A005D5C6B /* CustomMessageFlowLayout.swift in Sources */,
 				22218DB3241E132200B6AC05 /* RegisterViewController.swift in Sources */,
 				2258F67F23F38866005D5C6B /* UIColor+Extensions.swift in Sources */,

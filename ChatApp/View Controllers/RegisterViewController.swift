@@ -8,8 +8,13 @@
 
 import UIKit
 
-class RegisterViewController: UIViewController {
+class RegisterViewController: UIViewController, UITextFieldDelegate {
 
+    let userIDTextField = UITextField()
+    let nicknameTextField = UITextField()
+    let passwordTextField = UITextField()
+    let emailTextField = UITextField()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -22,32 +27,41 @@ class RegisterViewController: UIViewController {
         self.view.backgroundColor = UIColor(red: 255, green: 0, blue: 0, alpha: 1.0)
         self.view.addSubview(titleLabel)
         
-        let emailTextField = UITextField()
-        emailTextField.frame = CGRect(x: 30, y: 300, width: UIScreen.main.bounds.size.width-60, height: 38)
-        emailTextField.placeholder = "メールアドレス"
-        emailTextField.keyboardType = .emailAddress
-        emailTextField.borderStyle = .roundedRect
-        emailTextField.returnKeyType = .done
-        emailTextField.clearButtonMode = .always
-        self.view.addSubview(emailTextField)
+        userIDTextField.frame = CGRect(x: 30, y: 300, width: UIScreen.main.bounds.size.width-60, height: 38)
+        userIDTextField.placeholder = "アカウントID"
+        userIDTextField.keyboardType = .default
+        userIDTextField.borderStyle = .roundedRect
+        userIDTextField.returnKeyType = .done
+        userIDTextField.clearButtonMode = .always
+        self.userIDTextField.delegate = self
+        self.view.addSubview(userIDTextField)
         
-        let passwordTextField = UITextField()
-        passwordTextField.frame = CGRect(x: 30, y: 350, width: UIScreen.main.bounds.size.width-60, height: 38)
-        passwordTextField.placeholder = "パスワード"
-        passwordTextField.keyboardType = .alphabet
-        passwordTextField.borderStyle = .roundedRect
-        passwordTextField.returnKeyType = .done
-        passwordTextField.clearButtonMode = .always
-        self.view.addSubview(passwordTextField)
-        
-        let nicknameTextField = UITextField()
-        nicknameTextField.frame = CGRect(x: 30, y: 400, width: UIScreen.main.bounds.size.width-60, height: 38)
+        nicknameTextField.frame = CGRect(x: 30, y: 350, width: UIScreen.main.bounds.size.width-60, height: 38)
         nicknameTextField.placeholder = "ニックネーム"
         nicknameTextField.keyboardType = .default
         nicknameTextField.borderStyle = .roundedRect
         nicknameTextField.returnKeyType = .done
         nicknameTextField.clearButtonMode = .always
+        self.nicknameTextField.delegate = self
         self.view.addSubview(nicknameTextField)
+        
+        passwordTextField.frame = CGRect(x: 30, y: 400, width: UIScreen.main.bounds.size.width-60, height: 38)
+        passwordTextField.placeholder = "パスワード"
+        passwordTextField.keyboardType = .alphabet
+        passwordTextField.borderStyle = .roundedRect
+        passwordTextField.returnKeyType = .done
+        passwordTextField.clearButtonMode = .always
+        self.passwordTextField.delegate = self
+        self.view.addSubview(passwordTextField)
+        
+        emailTextField.frame = CGRect(x: 30, y: 450, width: UIScreen.main.bounds.size.width-60, height: 38)
+        emailTextField.placeholder = "メールアドレス"
+        emailTextField.keyboardType = .emailAddress
+        emailTextField.borderStyle = .roundedRect
+        emailTextField.returnKeyType = .done
+        emailTextField.clearButtonMode = .always
+        self.emailTextField.delegate = self
+        self.view.addSubview(emailTextField)
         
         let authButton = UIButton(frame: CGRect(x: 200,y: 500,width: 200,height: 100))
         authButton.setTitle("登録", for: UIControl.State.normal)
@@ -64,7 +78,37 @@ class RegisterViewController: UIViewController {
     }
     
     @objc func authButtonEvent(_ sender: UIButton) {
-        print("button pushed.")
+        print("to Confirm page")
+        let confirmVC = RegisterConfirmViewController()
+        
+        confirmVC.userID = userIDTextField.text!
+        confirmVC.nickname = nicknameTextField.text!
+        confirmVC.password = passwordTextField.text!
+        confirmVC.email = emailTextField.text!
+        print(type(of: confirmVC.userID))
+        print(type(of: confirmVC.nickname))
+        print(type(of: confirmVC.password))
+        print(type(of: confirmVC.email))
+        self.navigationController?.pushViewController(confirmVC, animated: true)
+    }
+    
+    // キーボード以外をタッチすることでキーボードを閉じる
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        if (nicknameTextField.isFirstResponder) {
+            nicknameTextField.resignFirstResponder()
+        } else if (passwordTextField.isFirstResponder) {
+            passwordTextField.resignFirstResponder()
+        } else if (emailTextField.isFirstResponder) {
+            emailTextField.resignFirstResponder()
+        }
+    }
+    
+    // リターンキーでキーボードを閉じる
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        nicknameTextField.resignFirstResponder()
+        passwordTextField.resignFirstResponder()
+        emailTextField.resignFirstResponder()
+        return true
     }
 
     /*

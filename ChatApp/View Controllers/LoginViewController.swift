@@ -9,8 +9,11 @@
 import UIKit
 import Firebase
 
-class LoginViewController: UIViewController {
+class LoginViewController: UIViewController, UITextFieldDelegate {
 
+    let accountidTextField = UITextField()
+    let passwordTextField = UITextField()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -23,22 +26,22 @@ class LoginViewController: UIViewController {
         self.view.backgroundColor = UIColor(red: 255, green: 0, blue: 0, alpha: 1.0)
         self.view.addSubview(titleLabel)
         
-        let accountidTextField = UITextField()
         accountidTextField.frame = CGRect(x: 30, y: 300, width: UIScreen.main.bounds.size.width-60, height: 38)
         accountidTextField.placeholder = "メールアドレス"
         accountidTextField.keyboardType = .emailAddress
         accountidTextField.borderStyle = .roundedRect
         accountidTextField.returnKeyType = .done
         accountidTextField.clearButtonMode = .always
+        self.accountidTextField.delegate = self
         self.view.addSubview(accountidTextField)
         
-        let passwordTextField = UITextField()
         passwordTextField.frame = CGRect(x: 30, y: 350, width: UIScreen.main.bounds.size.width-60, height: 38)
         passwordTextField.placeholder = "パスワード"
         passwordTextField.keyboardType = .alphabet
         passwordTextField.borderStyle = .roundedRect
         passwordTextField.returnKeyType = .done
         passwordTextField.clearButtonMode = .always
+        self.passwordTextField.delegate = self
         self.view.addSubview(passwordTextField)
         
         let authButton = UIButton(frame: CGRect(x: 200,y: 500,width: 200,height: 100))
@@ -58,6 +61,22 @@ class LoginViewController: UIViewController {
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
+    }
+    
+    // キーボード以外をタッチすることでキーボードを閉じる
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        if (accountidTextField.isFirstResponder) {
+            accountidTextField.resignFirstResponder()
+        } else if (passwordTextField.isFirstResponder) {
+            passwordTextField.resignFirstResponder()
+        }
+    }
+    
+    // リターンキーでキーボードを閉じる
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        accountidTextField.resignFirstResponder()
+        passwordTextField.resignFirstResponder()
+        return true
     }
     
     @objc func authButtonEvent(_ sender: UIButton) {
