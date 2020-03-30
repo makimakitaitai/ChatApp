@@ -30,6 +30,7 @@ class RegisterViewController: UIViewController, UITextFieldDelegate {
         userIDTextField.frame = CGRect(x: 30, y: 300, width: UIScreen.main.bounds.size.width-60, height: 38)
         userIDTextField.placeholder = "アカウントID"
         userIDTextField.keyboardType = .default
+        userIDTextField.autocapitalizationType = .none
         userIDTextField.borderStyle = .roundedRect
         userIDTextField.returnKeyType = .done
         userIDTextField.clearButtonMode = .always
@@ -48,6 +49,8 @@ class RegisterViewController: UIViewController, UITextFieldDelegate {
         passwordTextField.frame = CGRect(x: 30, y: 400, width: UIScreen.main.bounds.size.width-60, height: 38)
         passwordTextField.placeholder = "パスワード"
         passwordTextField.keyboardType = .alphabet
+        passwordTextField.autocapitalizationType = .none
+        passwordTextField.isSecureTextEntry = true
         passwordTextField.borderStyle = .roundedRect
         passwordTextField.returnKeyType = .done
         passwordTextField.clearButtonMode = .always
@@ -57,6 +60,7 @@ class RegisterViewController: UIViewController, UITextFieldDelegate {
         emailTextField.frame = CGRect(x: 30, y: 450, width: UIScreen.main.bounds.size.width-60, height: 38)
         emailTextField.placeholder = "メールアドレス"
         emailTextField.keyboardType = .emailAddress
+        emailTextField.autocapitalizationType = .none
         emailTextField.borderStyle = .roundedRect
         emailTextField.returnKeyType = .done
         emailTextField.clearButtonMode = .always
@@ -77,6 +81,28 @@ class RegisterViewController: UIViewController, UITextFieldDelegate {
         super.didReceiveMemoryWarning()
     }
     
+    // キーボード以外をタッチすることでキーボードを閉じる
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        if (userIDTextField.isFirstResponder) {
+            userIDTextField.resignFirstResponder()
+        } else if (nicknameTextField.isFirstResponder) {
+            nicknameTextField.resignFirstResponder()
+        } else if (passwordTextField.isFirstResponder) {
+            passwordTextField.resignFirstResponder()
+        } else if (emailTextField.isFirstResponder) {
+            emailTextField.resignFirstResponder()
+        }
+    }
+    
+    // リターンキーでキーボードを閉じる
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        userIDTextField.resignFirstResponder()
+        nicknameTextField.resignFirstResponder()
+        passwordTextField.resignFirstResponder()
+        emailTextField.resignFirstResponder()
+        return true
+    }
+    
     @objc func authButtonEvent(_ sender: UIButton) {
         print("to Confirm page")
         let confirmVC = RegisterConfirmViewController()
@@ -90,25 +116,6 @@ class RegisterViewController: UIViewController, UITextFieldDelegate {
         print(type(of: confirmVC.password))
         print(type(of: confirmVC.email))
         self.navigationController?.pushViewController(confirmVC, animated: true)
-    }
-    
-    // キーボード以外をタッチすることでキーボードを閉じる
-    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-        if (nicknameTextField.isFirstResponder) {
-            nicknameTextField.resignFirstResponder()
-        } else if (passwordTextField.isFirstResponder) {
-            passwordTextField.resignFirstResponder()
-        } else if (emailTextField.isFirstResponder) {
-            emailTextField.resignFirstResponder()
-        }
-    }
-    
-    // リターンキーでキーボードを閉じる
-    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        nicknameTextField.resignFirstResponder()
-        passwordTextField.resignFirstResponder()
-        emailTextField.resignFirstResponder()
-        return true
     }
 
     /*

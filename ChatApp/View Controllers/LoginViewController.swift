@@ -29,6 +29,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         accountidTextField.frame = CGRect(x: 30, y: 300, width: UIScreen.main.bounds.size.width-60, height: 38)
         accountidTextField.placeholder = "メールアドレス"
         accountidTextField.keyboardType = .emailAddress
+        accountidTextField.autocapitalizationType = .none
         accountidTextField.borderStyle = .roundedRect
         accountidTextField.returnKeyType = .done
         accountidTextField.clearButtonMode = .always
@@ -38,6 +39,8 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         passwordTextField.frame = CGRect(x: 30, y: 350, width: UIScreen.main.bounds.size.width-60, height: 38)
         passwordTextField.placeholder = "パスワード"
         passwordTextField.keyboardType = .alphabet
+        passwordTextField.autocapitalizationType = .none
+        passwordTextField.isSecureTextEntry = true
         passwordTextField.borderStyle = .roundedRect
         passwordTextField.returnKeyType = .done
         passwordTextField.clearButtonMode = .always
