@@ -8,15 +8,22 @@
 
 import UIKit
 
-class RegisterViewController: UIViewController, UITextFieldDelegate {
+class RegisterViewController: UIViewController, UITextFieldDelegate, UIScrollViewDelegate {
 
     let userIDTextField = UITextField()
     let nicknameTextField = UITextField()
     let passwordTextField = UITextField()
-    let emailTextField = UITextField()
+    var emailTextField = UITextField()
+    let scrollView = UIScrollView()
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        scrollView.frame = self.view.frame
+        scrollView.delegate = self
+        
+        scrollView.contentSize = CGSize(width:self.view.frame.width, height:1000)
+        self.view.addSubview(scrollView)
         
         let titleLabel: UILabel = UILabel(frame: CGRect(x: 0,y: 0,width: 200,height: 50))
         titleLabel.text = "ユーザ登録"
@@ -26,6 +33,7 @@ class RegisterViewController: UIViewController, UITextFieldDelegate {
         titleLabel.layer.position = CGPoint(x: self.view.bounds.width/2,y: 200)
         self.view.backgroundColor = UIColor(red: 255, green: 0, blue: 0, alpha: 1.0)
         self.view.addSubview(titleLabel)
+        scrollView.addSubview(titleLabel)
         
         userIDTextField.frame = CGRect(x: 30, y: 300, width: UIScreen.main.bounds.size.width-60, height: 38)
         userIDTextField.placeholder = "アカウントID"
@@ -36,6 +44,7 @@ class RegisterViewController: UIViewController, UITextFieldDelegate {
         userIDTextField.clearButtonMode = .always
         self.userIDTextField.delegate = self
         self.view.addSubview(userIDTextField)
+        scrollView.addSubview(userIDTextField)
         
         nicknameTextField.frame = CGRect(x: 30, y: 350, width: UIScreen.main.bounds.size.width-60, height: 38)
         nicknameTextField.placeholder = "ニックネーム"
@@ -45,6 +54,7 @@ class RegisterViewController: UIViewController, UITextFieldDelegate {
         nicknameTextField.clearButtonMode = .always
         self.nicknameTextField.delegate = self
         self.view.addSubview(nicknameTextField)
+        scrollView.addSubview(nicknameTextField)
         
         passwordTextField.frame = CGRect(x: 30, y: 400, width: UIScreen.main.bounds.size.width-60, height: 38)
         passwordTextField.placeholder = "パスワード"
@@ -56,6 +66,7 @@ class RegisterViewController: UIViewController, UITextFieldDelegate {
         passwordTextField.clearButtonMode = .always
         self.passwordTextField.delegate = self
         self.view.addSubview(passwordTextField)
+        scrollView.addSubview(passwordTextField)
         
         emailTextField.frame = CGRect(x: 30, y: 450, width: UIScreen.main.bounds.size.width-60, height: 38)
         emailTextField.placeholder = "メールアドレス"
@@ -66,12 +77,14 @@ class RegisterViewController: UIViewController, UITextFieldDelegate {
         emailTextField.clearButtonMode = .always
         self.emailTextField.delegate = self
         self.view.addSubview(emailTextField)
+        scrollView.addSubview(emailTextField)
         
-        let authButton = UIButton(frame: CGRect(x: 200,y: 500,width: 200,height: 100))
+        let authButton = UIButton(frame: CGRect(x: 175,y: 500,width: 200,height: 100))
         authButton.setTitle("登録", for: UIControl.State.normal)
         authButton.sizeToFit()
         authButton.addTarget(self, action: #selector(authButtonEvent(_:)), for: UIControl.Event.touchUpInside)
         self.view.addSubview(authButton)
+        scrollView.addSubview(authButton)
         
 
         // Do any additional setup after loading the view.
@@ -79,6 +92,47 @@ class RegisterViewController: UIViewController, UITextFieldDelegate {
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
+    }
+    
+    func textFieldShouldBeginEditing(_ textField: UITextField) -> Bool {
+
+    emailTextField = textField
+       return true
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+
+        super.viewWillAppear(animated)
+
+        let notificationCenter = NotificationCenter.default
+        notificationCenter.addObserver(self, selector: #selector(RegisterViewController.handleKeyboardWillShowNotification(_:)), name: UIResponder.keyboardWillShowNotification, object: nil)
+        notificationCenter.addObserver(self, selector: #selector(RegisterViewController.handleKeyboardWillHideNotification(_:)), name: UIResponder.keyboardWillHideNotification, object: nil)
+
+    }
+    
+    @objc func handleKeyboardWillShowNotification(_ notification: Notification) {
+
+
+        let userInfo = notification.userInfo!
+        let keyboardScreenEndFrame = (userInfo[UIResponder.keyboardFrameEndUserInfoKey] as! NSValue).cgRectValue
+        let myBoundSize: CGSize = UIScreen.main.bounds.size
+
+        let txtLimit = emailTextField.frame.origin.y + emailTextField.frame.height + 100.0
+        let kbdLimit = myBoundSize.height - keyboardScreenEndFrame.size.height
+
+         print("テキストフィールドの下辺：(\(txtLimit))")
+         print("キーボードの上辺：(\(kbdLimit))")
+
+
+        if txtLimit >= kbdLimit {
+            scrollView.contentOffset.y = txtLimit - kbdLimit
+        }
+    }
+    
+    @objc func handleKeyboardWillHideNotification(_ notification: Notification) {
+
+
+        scrollView.contentOffset.y = 0
     }
     
     // キーボード以外をタッチすることでキーボードを閉じる

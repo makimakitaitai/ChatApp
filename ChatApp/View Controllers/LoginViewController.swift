@@ -47,13 +47,13 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         self.passwordTextField.delegate = self
         self.view.addSubview(passwordTextField)
         
-        let authButton = UIButton(frame: CGRect(x: 200,y: 500,width: 200,height: 100))
+        let authButton = UIButton(frame: CGRect(x: 175,y: 450,width: 200,height: 100))
         authButton.setTitle("OK", for: UIControl.State.normal)
         authButton.sizeToFit()
         authButton.addTarget(self, action: #selector(authButtonEvent(_:)), for: UIControl.Event.touchUpInside)
         self.view.addSubview(authButton)
         
-        let toRegisterButton = UIButton(frame: CGRect(x: 120,y: 700,width: 200,height: 100))
+        let toRegisterButton = UIButton(frame: CGRect(x: 100,y: 600,width: 200,height: 100))
         toRegisterButton.setTitle("新規登録の方はこちらへ", for: UIControl.State.normal)
         toRegisterButton.sizeToFit()
         toRegisterButton.addTarget(self, action: #selector(toRegisterButtonEvent(_:)), for: UIControl.Event.touchUpInside)
@@ -91,7 +91,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         let registerVC = RegisterViewController()
         self.navigationController?.pushViewController(registerVC, animated: true)
     }
-
+    
     /*
     // MARK: - Navigation
 
