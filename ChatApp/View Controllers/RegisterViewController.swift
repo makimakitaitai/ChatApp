@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Firebase
 
 class RegisterViewController: UIViewController, UITextFieldDelegate, UIScrollViewDelegate {
 
@@ -15,6 +16,8 @@ class RegisterViewController: UIViewController, UITextFieldDelegate, UIScrollVie
     let passwordTextField = UITextField()
     var emailTextField = UITextField()
     let scrollView = UIScrollView()
+    
+    let maxLength: Int = 20
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -36,34 +39,48 @@ class RegisterViewController: UIViewController, UITextFieldDelegate, UIScrollVie
         scrollView.addSubview(titleLabel)
         
         userIDTextField.frame = CGRect(x: 30, y: 300, width: UIScreen.main.bounds.size.width-60, height: 38)
-        userIDTextField.placeholder = "アカウントID"
+        userIDTextField.placeholder = "アカウントID(20文字まで)"
         userIDTextField.keyboardType = .default
         userIDTextField.autocapitalizationType = .none
         userIDTextField.borderStyle = .roundedRect
         userIDTextField.returnKeyType = .done
         userIDTextField.clearButtonMode = .always
+        userIDTextField.tag = 1
+        
         self.userIDTextField.delegate = self
         self.view.addSubview(userIDTextField)
         scrollView.addSubview(userIDTextField)
         
+        NotificationCenter.default.addObserver(self, selector: #selector(textLength20(notification:)),
+                                               name: UITextField.textDidChangeNotification,
+                                               object: userIDTextField)
+        
         nicknameTextField.frame = CGRect(x: 30, y: 350, width: UIScreen.main.bounds.size.width-60, height: 38)
-        nicknameTextField.placeholder = "ニックネーム"
+        nicknameTextField.placeholder = "ニックネーム(20文字まで)"
         nicknameTextField.keyboardType = .default
         nicknameTextField.borderStyle = .roundedRect
         nicknameTextField.returnKeyType = .done
         nicknameTextField.clearButtonMode = .always
+        nicknameTextField.tag = 1
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(textLength20(notification:)),
+        name: UITextField.textDidChangeNotification,
+        object: nicknameTextField)
+        
         self.nicknameTextField.delegate = self
         self.view.addSubview(nicknameTextField)
         scrollView.addSubview(nicknameTextField)
         
         passwordTextField.frame = CGRect(x: 30, y: 400, width: UIScreen.main.bounds.size.width-60, height: 38)
-        passwordTextField.placeholder = "パスワード"
+        passwordTextField.placeholder = "パスワード(8文字以上)"
         passwordTextField.keyboardType = .alphabet
         passwordTextField.autocapitalizationType = .none
         passwordTextField.isSecureTextEntry = true
         passwordTextField.borderStyle = .roundedRect
         passwordTextField.returnKeyType = .done
         passwordTextField.clearButtonMode = .always
+        passwordTextField.tag = 2
+        
         self.passwordTextField.delegate = self
         self.view.addSubview(passwordTextField)
         scrollView.addSubview(passwordTextField)
@@ -75,6 +92,8 @@ class RegisterViewController: UIViewController, UITextFieldDelegate, UIScrollVie
         emailTextField.borderStyle = .roundedRect
         emailTextField.returnKeyType = .done
         emailTextField.clearButtonMode = .always
+        emailTextField.tag = 3
+        
         self.emailTextField.delegate = self
         self.view.addSubview(emailTextField)
         scrollView.addSubview(emailTextField)
@@ -130,8 +149,6 @@ class RegisterViewController: UIViewController, UITextFieldDelegate, UIScrollVie
     }
     
     @objc func handleKeyboardWillHideNotification(_ notification: Notification) {
-
-
         scrollView.contentOffset.y = 0
     }
     
@@ -155,6 +172,17 @@ class RegisterViewController: UIViewController, UITextFieldDelegate, UIScrollVie
         passwordTextField.resignFirstResponder()
         emailTextField.resignFirstResponder()
         return true
+    }
+    
+    // 文字数制限
+    @objc func textLength20(notification: NSNotification) {
+        let textField = notification.object as! UITextField
+
+        if let text = textField.text {
+            if textField.markedTextRange == nil && text.count > maxLength {
+                textField.text = text.prefix(maxLength).description
+            }
+        }
     }
     
     @objc func authButtonEvent(_ sender: UIButton) {
