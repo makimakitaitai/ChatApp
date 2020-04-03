@@ -27,7 +27,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         self.view.addSubview(titleLabel)
         
         accountidTextField.frame = CGRect(x: 30, y: 300, width: UIScreen.main.bounds.size.width-60, height: 38)
-        accountidTextField.placeholder = "メールアドレス"
+        accountidTextField.placeholder = "アカウントID"
         accountidTextField.keyboardType = .emailAddress
         accountidTextField.autocapitalizationType = .none
         accountidTextField.borderStyle = .roundedRect

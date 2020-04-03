@@ -94,7 +94,7 @@ class RegisterConfirmViewController: UIViewController {
         emailLabel.layer.position = CGPoint(x: 291,y: 450)
         self.view.addSubview(emailLabel)
         
-        let authButton = UIButton(frame: CGRect(x: 200,y: 500,width: 200,height: 100))
+        let authButton = UIButton(frame: CGRect(x: 175,y: 500,width: 200,height: 100))
         authButton.setTitle("登録", for: UIControl.State.normal)
         authButton.sizeToFit()
         authButton.addTarget(self, action: #selector(authButtonEvent(_:)), for: UIControl.Event.touchUpInside)
