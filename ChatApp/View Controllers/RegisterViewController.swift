@@ -16,6 +16,10 @@ class RegisterViewController: UIViewController, UITextFieldDelegate, UIScrollVie
     let passwordTextField = UITextField()
     var emailTextField = UITextField()
     let scrollView = UIScrollView()
+    let useridLabel: UILabel = UILabel(frame: CGRect(x: 0,y: 0,width: 300,height: 25))
+    let nicknameLabel: UILabel = UILabel(frame: CGRect(x: 0,y: 0,width: 300,height: 25))
+    let passwordLabel: UILabel = UILabel(frame: CGRect(x: 0,y: 0,width: 300,height: 25))
+    let emailLabel: UILabel = UILabel(frame: CGRect(x: 0,y: 0,width: 300,height: 25))
     
     let maxLength: Int = 20
     
@@ -33,14 +37,14 @@ class RegisterViewController: UIViewController, UITextFieldDelegate, UIScrollVie
         titleLabel.font = titleLabel.font.withSize(40.0)
         titleLabel.textColor = UIColor(red: 0, green: 0, blue: 0, alpha: 1.0)
         titleLabel.textAlignment = NSTextAlignment.center
-        titleLabel.layer.position = CGPoint(x: self.view.bounds.width/2,y: 200)
+        titleLabel.layer.position = CGPoint(x: self.view.bounds.width/2,y: 100)
         self.view.backgroundColor = UIColor(red: 255, green: 0, blue: 0, alpha: 1.0)
         self.view.addSubview(titleLabel)
         scrollView.addSubview(titleLabel)
         
-        userIDTextField.frame = CGRect(x: 30, y: 300, width: UIScreen.main.bounds.size.width-60, height: 38)
-        userIDTextField.placeholder = "アカウントID(20文字まで)"
-        userIDTextField.keyboardType = .default
+        userIDTextField.frame = CGRect(x: 30, y: 150, width: UIScreen.main.bounds.size.width-60, height: 38)
+        userIDTextField.placeholder = "アカウントID(英数字かつ20文字以下)"
+        userIDTextField.keyboardType = .alphabet
         userIDTextField.autocapitalizationType = .none
         userIDTextField.borderStyle = .roundedRect
         userIDTextField.returnKeyType = .done
@@ -55,7 +59,7 @@ class RegisterViewController: UIViewController, UITextFieldDelegate, UIScrollVie
                                                name: UITextField.textDidChangeNotification,
                                                object: userIDTextField)
         
-        nicknameTextField.frame = CGRect(x: 30, y: 350, width: UIScreen.main.bounds.size.width-60, height: 38)
+        nicknameTextField.frame = CGRect(x: 30, y: 200, width: UIScreen.main.bounds.size.width-60, height: 38)
         nicknameTextField.placeholder = "ニックネーム(20文字まで)"
         nicknameTextField.keyboardType = .default
         nicknameTextField.borderStyle = .roundedRect
@@ -71,7 +75,7 @@ class RegisterViewController: UIViewController, UITextFieldDelegate, UIScrollVie
         self.view.addSubview(nicknameTextField)
         scrollView.addSubview(nicknameTextField)
         
-        passwordTextField.frame = CGRect(x: 30, y: 400, width: UIScreen.main.bounds.size.width-60, height: 38)
+        passwordTextField.frame = CGRect(x: 30, y: 250, width: UIScreen.main.bounds.size.width-60, height: 38)
         passwordTextField.placeholder = "パスワード(8文字以上)"
         passwordTextField.keyboardType = .alphabet
         passwordTextField.autocapitalizationType = .none
@@ -85,7 +89,7 @@ class RegisterViewController: UIViewController, UITextFieldDelegate, UIScrollVie
         self.view.addSubview(passwordTextField)
         scrollView.addSubview(passwordTextField)
         
-        emailTextField.frame = CGRect(x: 30, y: 450, width: UIScreen.main.bounds.size.width-60, height: 38)
+        emailTextField.frame = CGRect(x: 30, y: 300, width: UIScreen.main.bounds.size.width-60, height: 38)
         emailTextField.placeholder = "メールアドレス"
         emailTextField.keyboardType = .emailAddress
         emailTextField.autocapitalizationType = .none
@@ -188,6 +192,56 @@ class RegisterViewController: UIViewController, UITextFieldDelegate, UIScrollVie
     @objc func authButtonEvent(_ sender: UIButton) {
         print("to Confirm page")
         let confirmVC = RegisterConfirmViewController()
+        let minimumLength: Int = 8
+        
+        if let userid = userIDTextField.text {
+            if userid.count == 0 {
+                useridLabel.text = "アカウントIDが未入力です"
+                useridLabel.font = passwordLabel.font.withSize(20.0)
+                useridLabel.textColor = UIColor(red: 0, green: 0, blue: 0, alpha: 1.0)
+                useridLabel.textAlignment = NSTextAlignment.center
+                useridLabel.layer.position = CGPoint(x: self.view.bounds.width/2,y: 375)
+                self.view.addSubview(useridLabel)
+                scrollView.addSubview(useridLabel)
+            }
+        }
+        
+        if let nickname = nicknameTextField.text {
+            if nickname.count == 0 {
+                nicknameLabel.text = "ニックネームが未入力です"
+                nicknameLabel.font = passwordLabel.font.withSize(20.0)
+                nicknameLabel.textColor = UIColor(red: 0, green: 0, blue: 0, alpha: 1.0)
+                nicknameLabel.textAlignment = NSTextAlignment.center
+                nicknameLabel.layer.position = CGPoint(x: self.view.bounds.width/2,y: 405)
+                self.view.addSubview(nicknameLabel)
+                scrollView.addSubview(nicknameLabel)
+            }
+        }
+        
+        if let password = passwordTextField.text {
+            if password.count < minimumLength {
+                passwordLabel.text = "パスワードの長さが8文字未満です"
+                passwordLabel.font = passwordLabel.font.withSize(20.0)
+                passwordLabel.textColor = UIColor(red: 0, green: 0, blue: 0, alpha: 1.0)
+                passwordLabel.textAlignment = NSTextAlignment.center
+                passwordLabel.layer.position = CGPoint(x: self.view.bounds.width/2,y: 435)
+                self.view.addSubview(passwordLabel)
+                scrollView.addSubview(passwordLabel)
+            }
+        }
+        
+        if let email = emailTextField.text {
+            if email.count == 0 {
+                emailLabel.text = "メールアドレスが未入力です"
+                emailLabel.font = passwordLabel.font.withSize(20.0)
+                emailLabel.textColor = UIColor(red: 0, green: 0, blue: 0, alpha: 1.0)
+                emailLabel.textAlignment = NSTextAlignment.center
+                emailLabel.layer.position = CGPoint(x: self.view.bounds.width/2,y: 465)
+                self.view.addSubview(emailLabel)
+                scrollView.addSubview(emailLabel)
+                return
+            }
+        }
         
         confirmVC.userID = userIDTextField.text!
         confirmVC.nickname = nicknameTextField.text!
