@@ -78,7 +78,7 @@ class RegisterViewController: UIViewController, UITextFieldDelegate, UIScrollVie
         passwordTextField.frame = CGRect(x: 30, y: 250, width: UIScreen.main.bounds.size.width-60, height: 38)
         passwordTextField.placeholder = "パスワード(8文字以上)"
         passwordTextField.keyboardType = .alphabet
-        passwordTextField.autocapitalizationType = .none
+        //passwordTextField.autocapitalizationType = .none
         passwordTextField.isSecureTextEntry = true
         passwordTextField.borderStyle = .roundedRect
         passwordTextField.returnKeyType = .done
@@ -190,6 +190,7 @@ class RegisterViewController: UIViewController, UITextFieldDelegate, UIScrollVie
     }
     
     @objc func authButtonEvent(_ sender: UIButton) {
+        var errcount = 0
         print("to Confirm page")
         let confirmVC = RegisterConfirmViewController()
         let minimumLength: Int = 8
@@ -197,13 +198,19 @@ class RegisterViewController: UIViewController, UITextFieldDelegate, UIScrollVie
         if let userid = userIDTextField.text {
             if userid.count == 0 {
                 useridLabel.text = "アカウントIDが未入力です"
-                useridLabel.font = passwordLabel.font.withSize(20.0)
-                useridLabel.textColor = UIColor(red: 0, green: 0, blue: 0, alpha: 1.0)
-                useridLabel.textAlignment = NSTextAlignment.center
-                useridLabel.layer.position = CGPoint(x: self.view.bounds.width/2,y: 375)
-                self.view.addSubview(useridLabel)
-                scrollView.addSubview(useridLabel)
+                errcount += 1
+            } else if userid.pregMatche(pattern: "[^A-Z0-9a-z]+") {
+                useridLabel.text = "アカウントIDに不当な文字あります"
+                errcount += 1
+            } else {
+                useridLabel.text = ""
             }
+            useridLabel.font = passwordLabel.font.withSize(20.0)
+            useridLabel.textColor = UIColor(red: 0, green: 0, blue: 0, alpha: 1.0)
+            useridLabel.textAlignment = NSTextAlignment.center
+            useridLabel.layer.position = CGPoint(x: self.view.bounds.width/2,y: 375)
+            self.view.addSubview(useridLabel)
+            scrollView.addSubview(useridLabel)
         }
         
         if let nickname = nicknameTextField.text {
@@ -215,6 +222,7 @@ class RegisterViewController: UIViewController, UITextFieldDelegate, UIScrollVie
                 nicknameLabel.layer.position = CGPoint(x: self.view.bounds.width/2,y: 405)
                 self.view.addSubview(nicknameLabel)
                 scrollView.addSubview(nicknameLabel)
+                errcount += 1
             }
         }
         
@@ -227,6 +235,7 @@ class RegisterViewController: UIViewController, UITextFieldDelegate, UIScrollVie
                 passwordLabel.layer.position = CGPoint(x: self.view.bounds.width/2,y: 435)
                 self.view.addSubview(passwordLabel)
                 scrollView.addSubview(passwordLabel)
+                errcount += 1
             }
         }
         
@@ -239,19 +248,24 @@ class RegisterViewController: UIViewController, UITextFieldDelegate, UIScrollVie
                 emailLabel.layer.position = CGPoint(x: self.view.bounds.width/2,y: 465)
                 self.view.addSubview(emailLabel)
                 scrollView.addSubview(emailLabel)
-                return
+                errcount += 1
             }
         }
         
-        confirmVC.userID = userIDTextField.text!
-        confirmVC.nickname = nicknameTextField.text!
-        confirmVC.password = passwordTextField.text!
-        confirmVC.email = emailTextField.text!
-        print(type(of: confirmVC.userID))
-        print(type(of: confirmVC.nickname))
-        print(type(of: confirmVC.password))
-        print(type(of: confirmVC.email))
-        self.navigationController?.pushViewController(confirmVC, animated: true)
+        if errcount > 0 {
+            errcount = 0
+            return
+        } else {
+            confirmVC.userID = userIDTextField.text!
+            confirmVC.nickname = nicknameTextField.text!
+            confirmVC.password = passwordTextField.text!
+            confirmVC.email = emailTextField.text!
+            print(type(of: confirmVC.userID))
+            print(type(of: confirmVC.nickname))
+            print(type(of: confirmVC.password))
+            print(type(of: confirmVC.email))
+            self.navigationController?.pushViewController(confirmVC, animated: true)
+        }
     }
 
     /*

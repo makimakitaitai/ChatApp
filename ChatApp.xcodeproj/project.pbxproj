@@ -43,6 +43,7 @@
 		22B94B0F2428AE1C004ACC8E /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 22B94B0C2428AE1C004ACC8E /* GoogleService-Info.plist */; };
 		22C1AF7324234D24004E592E /* RegisterConfirmViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22C1AF7224234D23004E592E /* RegisterConfirmViewController.swift */; };
 		22D51EDA24065D5A0008083A /* ChatRoomViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22D51ED924065D5A0008083A /* ChatRoomViewController.swift */; };
+		22EEA76A244D9CBA00C7239F /* Swift+Validation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22EEA769244D9CBA00C7239F /* Swift+Validation.swift */; };
 		4A28F0FC053B8D13A8CFE067 /* Pods_ChatApp_ChatAppUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AC9457DC010D00672E97A181 /* Pods_ChatApp_ChatAppUITests.framework */; };
 		C085ECAC850EF925FEBDF316 /* Pods_ChatAppTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CF5064EA267ECAB498853B57 /* Pods_ChatAppTests.framework */; };
 		DC2097FAA445D0C1CB91B752 /* Pods_ChatApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BB39E4AB3C252945803D8B5B /* Pods_ChatApp.framework */; };
@@ -107,6 +108,7 @@
 		22B94B0C2428AE1C004ACC8E /* GoogleService-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "GoogleService-Info.plist"; sourceTree = SOURCE_ROOT; };
 		22C1AF7224234D23004E592E /* RegisterConfirmViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterConfirmViewController.swift; sourceTree = "<group>"; };
 		22D51ED924065D5A0008083A /* ChatRoomViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ChatRoomViewController.swift; path = "/Users/makimaki/Desktop/Develop/ios_app/ChatApp/ChatApp/View Controllers/ChatRoomViewController.swift"; sourceTree = "<absolute>"; };
+		22EEA769244D9CBA00C7239F /* Swift+Validation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Swift+Validation.swift"; sourceTree = "<group>"; };
 		4E710CB427A829CB79112920 /* Pods-ChatApp-ChatAppUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ChatApp-ChatAppUITests.release.xcconfig"; path = "Target Support Files/Pods-ChatApp-ChatAppUITests/Pods-ChatApp-ChatAppUITests.release.xcconfig"; sourceTree = "<group>"; };
 		6B8917037C648636082AD2F1 /* Pods-ChatApp-ChatAppUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ChatApp-ChatAppUITests.debug.xcconfig"; path = "Target Support Files/Pods-ChatApp-ChatAppUITests/Pods-ChatApp-ChatAppUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		935B7FAEBC3E21E3EE7385A9 /* Pods-ChatAppTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ChatAppTests.release.xcconfig"; path = "Target Support Files/Pods-ChatAppTests/Pods-ChatAppTests.release.xcconfig"; sourceTree = "<group>"; };
@@ -184,7 +186,6 @@
 				2258F63A23F37EF7005D5C6B /* LaunchScreen.storyboard */,
 				2258F63D23F37EF7005D5C6B /* Info.plist */,
 				2258F68A23F39366005D5C6B /* IMessageViewController.swift */,
-				2258F68C23F394F2005D5C6B /* Settings+UserDefaults.swift */,
 				22B94B0C2428AE1C004ACC8E /* GoogleService-Info.plist */,
 			);
 			path = ChatApp;
@@ -258,7 +259,9 @@
 			isa = PBXGroup;
 			children = (
 				2258F67E23F38866005D5C6B /* UIColor+Extensions.swift */,
+				2258F68C23F394F2005D5C6B /* Settings+UserDefaults.swift */,
 				2258F68023F3888F005D5C6B /* UIViewController+Extensions.swift */,
+				22EEA769244D9CBA00C7239F /* Swift+Validation.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -559,6 +562,7 @@
 				2258F63423F37EF4005D5C6B /* AdvancedExampleViewController.swift in Sources */,
 				2258F68923F389AC005D5C6B /* BasicAudioController.swift in Sources */,
 				2258F67223F38368005D5C6B /* TableViewCells.swift in Sources */,
+				22EEA76A244D9CBA00C7239F /* Swift+Validation.swift in Sources */,
 				2258F63023F37EF4005D5C6B /* AppDelegate.swift in Sources */,
 				2258F68623F38931005D5C6B /* SampleData.swift in Sources */,
 				2258F67023F3830F005D5C6B /* CustomCell.swift in Sources */,
