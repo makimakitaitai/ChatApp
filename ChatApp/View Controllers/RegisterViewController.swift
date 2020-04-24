@@ -109,8 +109,6 @@ class RegisterViewController: UIViewController, UITextFieldDelegate, UIScrollVie
         self.view.addSubview(authButton)
         scrollView.addSubview(authButton)
         
-
-        // Do any additional setup after loading the view.
     }
     
     override func didReceiveMemoryWarning() {
@@ -229,27 +227,37 @@ class RegisterViewController: UIViewController, UITextFieldDelegate, UIScrollVie
         if let password = passwordTextField.text {
             if password.count < minimumLength {
                 passwordLabel.text = "パスワードの長さが8文字未満です"
-                passwordLabel.font = passwordLabel.font.withSize(20.0)
-                passwordLabel.textColor = UIColor(red: 0, green: 0, blue: 0, alpha: 1.0)
-                passwordLabel.textAlignment = NSTextAlignment.center
-                passwordLabel.layer.position = CGPoint(x: self.view.bounds.width/2,y: 435)
-                self.view.addSubview(passwordLabel)
-                scrollView.addSubview(passwordLabel)
                 errcount += 1
+            } else if password.pregMatche(pattern: "[\\s]+") {
+                passwordLabel.text = "パスワードに空白が含まれています"
+                errcount += 1
+            } else {
+                passwordLabel.text = ""
             }
+            passwordLabel.font = passwordLabel.font.withSize(20.0)
+            passwordLabel.textColor = UIColor(red: 0, green: 0, blue: 0, alpha: 1.0)
+            passwordLabel.textAlignment = NSTextAlignment.center
+            passwordLabel.layer.position = CGPoint(x: self.view.bounds.width/2,y: 435)
+            self.view.addSubview(passwordLabel)
+            scrollView.addSubview(passwordLabel)
         }
         
         if let email = emailTextField.text {
             if email.count == 0 {
                 emailLabel.text = "メールアドレスが未入力です"
-                emailLabel.font = passwordLabel.font.withSize(20.0)
-                emailLabel.textColor = UIColor(red: 0, green: 0, blue: 0, alpha: 1.0)
-                emailLabel.textAlignment = NSTextAlignment.center
-                emailLabel.layer.position = CGPoint(x: self.view.bounds.width/2,y: 465)
-                self.view.addSubview(emailLabel)
-                scrollView.addSubview(emailLabel)
                 errcount += 1
+            } else if !(email.pregMatche(pattern: "^[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,4}$")) {
+                emailLabel.text = "メールアドレスを入力してください"
+                errcount += 1
+            } else {
+                emailLabel.text = ""
             }
+            emailLabel.font = passwordLabel.font.withSize(20.0)
+            emailLabel.textColor = UIColor(red: 0, green: 0, blue: 0, alpha: 1.0)
+            emailLabel.textAlignment = NSTextAlignment.center
+            emailLabel.layer.position = CGPoint(x: self.view.bounds.width/2,y: 465)
+            self.view.addSubview(emailLabel)
+            scrollView.addSubview(emailLabel)
         }
         
         if errcount > 0 {
