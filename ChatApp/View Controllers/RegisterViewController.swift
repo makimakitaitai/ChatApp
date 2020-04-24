@@ -22,6 +22,7 @@ class RegisterViewController: UIViewController, UITextFieldDelegate, UIScrollVie
     let emailLabel: UILabel = UILabel(frame: CGRect(x: 0,y: 0,width: 300,height: 25))
     
     let maxLength: Int = 20
+    var db: Firestore!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -109,6 +110,10 @@ class RegisterViewController: UIViewController, UITextFieldDelegate, UIScrollVie
         self.view.addSubview(authButton)
         scrollView.addSubview(authButton)
         
+        // Firestore関連
+        let settings = FirestoreSettings()
+        Firestore.firestore().settings = settings
+        db = Firestore.firestore()
     }
     
     override func didReceiveMemoryWarning() {
@@ -264,15 +269,31 @@ class RegisterViewController: UIViewController, UITextFieldDelegate, UIScrollVie
             errcount = 0
             return
         } else {
-            confirmVC.userID = userIDTextField.text!
-            confirmVC.nickname = nicknameTextField.text!
-            confirmVC.password = passwordTextField.text!
-            confirmVC.email = emailTextField.text!
-            print(type(of: confirmVC.userID))
-            print(type(of: confirmVC.nickname))
-            print(type(of: confirmVC.password))
-            print(type(of: confirmVC.email))
-            self.navigationController?.pushViewController(confirmVC, animated: true)
+            let userid = userIDTextField.text!
+            let docRef = db.collection("users").document(userid)
+            docRef.getDocument { (document, error) in
+                if let document = document, document.exists {
+                    self.useridLabel.text = "使用済みのアカウントIDです"
+                    self.useridLabel.font = self.passwordLabel.font.withSize(20.0)
+                    self.useridLabel.textColor = UIColor(red: 0, green: 0, blue: 0, alpha: 1.0)
+                    self.useridLabel.textAlignment = NSTextAlignment.center
+                    self.useridLabel.layer.position = CGPoint(x: self.view.bounds.width/2,y: 375)
+                    self.view.addSubview(self.useridLabel)
+                    self.scrollView.addSubview(self.useridLabel)
+                } else {
+                    print("Document does not exist")
+                    
+                    confirmVC.userID = self.userIDTextField.text!
+                    confirmVC.nickname = self.nicknameTextField.text!
+                    confirmVC.password = self.passwordTextField.text!
+                    confirmVC.email = self.emailTextField.text!
+                    print(type(of: confirmVC.userID))
+                    print(type(of: confirmVC.nickname))
+                    print(type(of: confirmVC.password))
+                    print(type(of: confirmVC.email))
+                    self.navigationController?.pushViewController(confirmVC, animated: true)
+                }
+            }
         }
     }
 
