@@ -32,66 +32,67 @@ class RegisterConfirmViewController: UIViewController {
         
         let uLabel: UILabel = UILabel(frame: CGRect(x: 0,y: 0,width: 200,height: 50))
         uLabel.text = "アカウントID: "
-        uLabel.font = titleLabel.font.withSize(20.0)
+        uLabel.font = titleLabel.font.withSize(15.0)
         uLabel.textColor = UIColor(red: 0, green: 0, blue: 0, alpha: 1.0)
         uLabel.textAlignment = NSTextAlignment.center
-        uLabel.layer.position = CGPoint(x: 100,y: 300)
+        uLabel.layer.position = CGPoint(x: 65,y: 300)
         self.view.addSubview(uLabel)
         
         let userIDLabel: UILabel = UILabel(frame: CGRect(x: 0,y: 0,width: 200,height: 50))
         userIDLabel.text = userID
-        userIDLabel.font = titleLabel.font.withSize(20.0)
+        userIDLabel.font = titleLabel.font.withSize(15.0)
         userIDLabel.textColor = UIColor(red: 0, green: 0, blue: 0, alpha: 1.0)
         userIDLabel.textAlignment = NSTextAlignment.center
-        userIDLabel.layer.position = CGPoint(x: 291,y: 300)
+        userIDLabel.layer.position = CGPoint(x: 155,y: 300)
         self.view.addSubview(userIDLabel)
         
         let nLabel: UILabel = UILabel(frame: CGRect(x: 0,y: 0,width: 200,height: 50))
         nLabel.text = "ニックネーム: "
-        nLabel.font = titleLabel.font.withSize(20.0)
+        nLabel.font = titleLabel.font.withSize(15.0)
         nLabel.textColor = UIColor(red: 0, green: 0, blue: 0, alpha: 1.0)
         nLabel.textAlignment = NSTextAlignment.center
-        nLabel.layer.position = CGPoint(x: 100,y: 350)
+        nLabel.layer.position = CGPoint(x: 65,y: 350)
         self.view.addSubview(nLabel)
         
         let nicknameLabel: UILabel = UILabel(frame: CGRect(x: 0,y: 0,width: 200,height: 50))
         nicknameLabel.text = nickname
-        nicknameLabel.font = titleLabel.font.withSize(20.0)
+        nicknameLabel.font = titleLabel.font.withSize(15.0)
         nicknameLabel.textColor = UIColor(red: 0, green: 0, blue: 0, alpha: 1.0)
         nicknameLabel.textAlignment = NSTextAlignment.left
-        nicknameLabel.layer.position = CGPoint(x: 291,y: 350)
+        nicknameLabel.layer.position = CGPoint(x: 225,y: 350)
         self.view.addSubview(nicknameLabel)
         
         let pLabel: UILabel = UILabel(frame: CGRect(x: 0,y: 0,width: 200,height: 50))
         pLabel.text = "パスワード: "
-        pLabel.font = titleLabel.font.withSize(20.0)
+        pLabel.font = titleLabel.font.withSize(15.0)
         pLabel.textColor = UIColor(red: 0, green: 0, blue: 0, alpha: 1.0)
         pLabel.textAlignment = NSTextAlignment.center
-        pLabel.layer.position = CGPoint(x: 110,y: 400)
+        pLabel.layer.position = CGPoint(x: 70,y: 400)
         self.view.addSubview(pLabel)
         
         let passwordLabel: UILabel = UILabel(frame: CGRect(x: 0,y: 0,width: 200,height: 50))
-        passwordLabel.text = password
-        passwordLabel.font = titleLabel.font.withSize(20.0)
+        //passwordLabel.text = password
+        passwordLabel.text = "非表示"
+        passwordLabel.font = titleLabel.font.withSize(15.0)
         passwordLabel.textColor = UIColor(red: 0, green: 0, blue: 0, alpha: 1.0)
         passwordLabel.textAlignment = NSTextAlignment.left
-        passwordLabel.layer.position = CGPoint(x: 291,y: 400)
+        passwordLabel.layer.position = CGPoint(x: 225,y: 400)
         self.view.addSubview(passwordLabel)
         
         let eLabel: UILabel = UILabel(frame: CGRect(x: 0,y: 0,width: 200,height: 50))
         eLabel.text = "メールアドレス: "
-        eLabel.font = titleLabel.font.withSize(20.0)
+        eLabel.font = titleLabel.font.withSize(15.0)
         eLabel.textColor = UIColor(red: 0, green: 0, blue: 0, alpha: 1.0)
         eLabel.textAlignment = NSTextAlignment.center
-        eLabel.layer.position = CGPoint(x: 91,y: 450)
+        eLabel.layer.position = CGPoint(x: 60,y: 450)
         self.view.addSubview(eLabel)
         
         let emailLabel: UILabel = UILabel(frame: CGRect(x: 0,y: 0,width: 200,height: 50))
         emailLabel.text = email
-        emailLabel.font = titleLabel.font.withSize(20.0)
+        emailLabel.font = titleLabel.font.withSize(15.0)
         emailLabel.textColor = UIColor(red: 0, green: 0, blue: 0, alpha: 1.0)
         emailLabel.textAlignment = NSTextAlignment.left
-        emailLabel.layer.position = CGPoint(x: 291,y: 450)
+        emailLabel.layer.position = CGPoint(x: 225,y: 450)
         self.view.addSubview(emailLabel)
         
         let authButton = UIButton(frame: CGRect(x: 175,y: 500,width: 200,height: 100))
