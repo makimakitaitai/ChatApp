@@ -43,7 +43,7 @@ class RegisterConfirmViewController: UIViewController {
         userIDLabel.font = titleLabel.font.withSize(15.0)
         userIDLabel.textColor = UIColor(red: 0, green: 0, blue: 0, alpha: 1.0)
         userIDLabel.textAlignment = NSTextAlignment.center
-        userIDLabel.layer.position = CGPoint(x: 155,y: 300)
+        userIDLabel.layer.position = CGPoint(x: 145,y: 300)
         self.view.addSubview(userIDLabel)
         
         let nLabel: UILabel = UILabel(frame: CGRect(x: 0,y: 0,width: 200,height: 50))
