@@ -91,8 +91,8 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     }
     
     @objc func authButtonEvent(_ sender: UIButton) {
-        let launchVC = LaunchViewController()
         var errcount = 0
+        let crListVC = ChatRoomListViewController()
         
         if let accountid = accountidTextField.text {
             if accountid.count == 0 {
@@ -137,7 +137,9 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
                     let password = self.passwordTextField.text
                     if password == dataDescription {
                         print("パスワードも合っているよ")
-                        self.navigationController?.pushViewController(launchVC, animated: true)
+                        crListVC.accountID = accountid
+                        print(accountid)
+                        self.navigationController?.pushViewController(crListVC, animated: true)
                     } else {
                         print("パスワードが合っていないよ")
                     }

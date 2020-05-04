@@ -9,13 +9,17 @@
 import Foundation
 import UIKit
 import SafariServices
+import Firebase
 
 final internal class ChatRoomListViewController: UITableViewController {
+    
+    var db: Firestore!
+    var accountID = ""
     
     override var preferredStatusBarStyle: UIStatusBarStyle {
         return .lightContent
     }
-
+    
     let cells = ["Basic Example", "Advanced Example", "Autocomplete Example", "Embedded Example", "Settings", "Source Code", "Contributors", "Chat Room"]
     
     // MARK: - View Life Cycle
@@ -23,6 +27,22 @@ final internal class ChatRoomListViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         title = "MessageKit"
+        
+        // Firestore関連
+        let settings = FirestoreSettings()
+        Firestore.firestore().settings = settings
+        db = Firestore.firestore()
+        let docRef = db.collection("users").document(accountID).collection("roomlist")
+        docRef.getDocuments(){ (quesrySnapShot, err) in
+            if let err = err {
+                print("Error getting documents: \(err)")
+            } else {
+                for doc in quesrySnapShot!.documents {
+                    print("get document")
+                }
+            }
+        }
+        
         navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
         tableView.register(UITableViewCell.self, forCellReuseIdentifier: "cell")
         tableView.tableFooterView = UIView()
