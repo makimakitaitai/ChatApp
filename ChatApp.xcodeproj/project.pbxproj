@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		22185BDC245D613E000DCF4A /* ChatRoomListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22185BDB245D613E000DCF4A /* ChatRoomListViewController.swift */; };
 		22218DB1241B807A00B6AC05 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22218DB0241B807A00B6AC05 /* LoginViewController.swift */; };
 		22218DB3241E132200B6AC05 /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22218DB2241E132200B6AC05 /* RegisterViewController.swift */; };
 		2258F63023F37EF4005D5C6B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2258F62F23F37EF4005D5C6B /* AppDelegate.swift */; };
@@ -68,6 +69,7 @@
 
 /* Begin PBXFileReference section */
 		1DB32D02ADB01E9BA2F72540 /* Pods-ChatApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ChatApp.debug.xcconfig"; path = "Target Support Files/Pods-ChatApp/Pods-ChatApp.debug.xcconfig"; sourceTree = "<group>"; };
+		22185BDB245D613E000DCF4A /* ChatRoomListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatRoomListViewController.swift; sourceTree = "<group>"; };
 		22218DB0241B807A00B6AC05 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		22218DB2241E132200B6AC05 /* RegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
 		2258F62C23F37EF4005D5C6B /* ChatApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ChatApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -224,6 +226,7 @@
 				22218DB0241B807A00B6AC05 /* LoginViewController.swift */,
 				22218DB2241E132200B6AC05 /* RegisterViewController.swift */,
 				22C1AF7224234D23004E592E /* RegisterConfirmViewController.swift */,
+				22185BDB245D613E000DCF4A /* ChatRoomListViewController.swift */,
 			);
 			path = "View Controllers";
 			sourceTree = "<group>";
@@ -562,6 +565,7 @@
 				2258F63423F37EF4005D5C6B /* AdvancedExampleViewController.swift in Sources */,
 				2258F68923F389AC005D5C6B /* BasicAudioController.swift in Sources */,
 				2258F67223F38368005D5C6B /* TableViewCells.swift in Sources */,
+				22185BDC245D613E000DCF4A /* ChatRoomListViewController.swift in Sources */,
 				22EEA76A244D9CBA00C7239F /* Swift+Validation.swift in Sources */,
 				2258F63023F37EF4005D5C6B /* AppDelegate.swift in Sources */,
 				2258F68623F38931005D5C6B /* SampleData.swift in Sources */,
